@@ -1,3 +1,4 @@
+package behavioral.strategy;
 
 /**
  * CONCRETE STRATEGY - Card Payment

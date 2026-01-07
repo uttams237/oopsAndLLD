@@ -123,19 +123,31 @@ Different conversion strategies: Real-time rates, Fixed rates, Premium rates
 
 ## How to Run 🚀
 
+### From the `oops` directory (Recommended):
+
+```bash
+# Navigate to the oops directory
+cd /Users/uttamsharma/Desktop/java/oops
+
+# Compile with package structure
+javac -d . design-patterns/behavioral/strategy/*.java
+
+# Run the demo
+java behavioral.strategy.StrategyPatternDemo
+```
+
+### From the `strategy` directory:
+
 ```bash
 # Navigate to the strategy pattern directory
 cd /Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy
 
-# Compile and run in one command
-javac *.java && java StrategyPatternDemo
-```
+# Compile all files
+javac *.java
 
-Or from the oops directory:
-
-```bash
+# Go back to oops directory to run
 cd /Users/uttamsharma/Desktop/java/oops
-cd design-patterns/behavioral/strategy && javac *.java && java StrategyPatternDemo
+java behavioral.strategy.StrategyPatternDemo
 ```
 
 ---

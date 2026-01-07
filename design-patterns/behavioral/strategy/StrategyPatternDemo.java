@@ -1,3 +1,4 @@
+package behavioral.strategy;
 
 /**
  * STRATEGY PATTERN DEMO - Fintech Payment System

@@ -1,0 +1,8 @@
+*.class
+.DS_Store
+.vscode/
+.classpath
+.project
+/bin/
+/behavioral/
+**/behavioral/
