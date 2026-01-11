@@ -56,18 +56,56 @@ transaction.processTransaction("TXN001", 5000, "SUCCESS", "Payment received");
 
 ## Structure 🏗️
 
-```
-┌─────────────────┐                    ┌──────────────────────┐
-│   Transaction   │ ──────► Uses ────► │ NotificationObserver │ (Interface)
-│   (Subject)     │                    └──────────────────────┘
-└─────────────────┘                              △
-       │                                         │ Implements
-       │ Maintains list of                       │
-       │ observers                  ┌────────────┼────────────┐
-       │                            │            │            │
-       └──► notifyObservers()  ┌────────┐  ┌─────────┐  ┌──────────┐
-                               │  SMS   │  │  Email  │  │   Push   │
-                               └────────┘  └─────────┘  └──────────┘
+```mermaid
+classDiagram
+    class NotificationObserver {
+        <<interface>>
+        +update(transactionId: String, amount: double, status: String, message: String)
+        +getObserverName() String
+    }
+
+    class SmsNotificationObserver {
+        -phoneNumber: String
+        +update(...)
+        +getObserverName() String
+    }
+
+    class EmailNotificationObserver {
+        -email: String
+        +update(...)
+        +getObserverName() String
+    }
+
+    class PushNotificationObserver {
+        -deviceId: String
+        +update(...)
+        +getObserverName() String
+    }
+
+    class TransactionSubject {
+        <<interface>>
+        +attach(observer: NotificationObserver)
+        +detach(observer: NotificationObserver)
+        +notifyObservers()
+    }
+
+    class Transaction {
+        -observers: List~NotificationObserver~
+        -transactionId: String
+        -amount: double
+        -status: String
+        -message: String
+        +attach(observer: NotificationObserver)
+        +detach(observer: NotificationObserver)
+        +notifyObservers()
+        +processTransaction(...)
+    }
+
+    NotificationObserver <|.. SmsNotificationObserver : Realizes
+    NotificationObserver <|.. EmailNotificationObserver : Realizes
+    NotificationObserver <|.. PushNotificationObserver : Realizes
+    TransactionSubject <|.. Transaction : Realizes
+    Transaction o-- NotificationObserver : Aggregates
 ```
 
 ### Components:

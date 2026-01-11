@@ -55,18 +55,47 @@ context.executePayment(2500.00);
 
 ## Structure 🏗️
 
-```
-┌─────────────────┐
-│ PaymentContext  │ ──────► Uses ──────► ┌──────────────────┐
-└─────────────────┘                      │ PaymentStrategy  │ (Interface)
-                                         └──────────────────┘
-                                                  △
-                                                  │ Implements
-                        ┌─────────────────────────┼─────────────────────────┐
-                        │                         │                         │
-                ┌───────────────┐         ┌──────────────┐         ┌──────────────────┐
-                │  UpiPayment   │         │ CardPayment  │         │ NetBankingPayment│
-                └───────────────┘         └──────────────┘         └──────────────────┘
+```mermaid
+classDiagram
+    class PaymentStrategy {
+        <<interface>>
+        +pay(amount: double) boolean
+        +getPaymentMethodName() String
+    }
+
+    class UpiPayment {
+        -upiId: String
+        +pay(amount: double) boolean
+        +getPaymentMethodName() String
+    }
+
+    class CardPayment {
+        -cardNumber: String
+        -cardHolderName: String
+        -expiryDate: String
+        -cvv: String
+        +pay(amount: double) boolean
+        +getPaymentMethodName() String
+    }
+
+    class NetBankingPayment {
+        -bankName: String
+        -accountNumber: String
+        -ifscCode: String
+        +pay(amount: double) boolean
+        +getPaymentMethodName() String
+    }
+
+    class PaymentContext {
+        -paymentStrategy: PaymentStrategy
+        +setPaymentStrategy(strategy: PaymentStrategy)
+        +executePayment(amount: double) boolean
+    }
+
+    PaymentStrategy <|.. UpiPayment : Realizes
+    PaymentStrategy <|.. CardPayment : Realizes
+    PaymentStrategy <|.. NetBankingPayment : Realizes
+    PaymentContext --> PaymentStrategy : Uses
 ```
 
 ### Components:
