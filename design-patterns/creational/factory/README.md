@@ -63,29 +63,72 @@ public void processPayment(String type) {
 
 ## Structure 🏗️
 
-```
-                    ┌──────────────────┐
-                    │ PaymentMethod    │ (Product Interface)
-                    └──────────────────┘
-                            △
-                            │ Implements
-          ┌─────────────────┼─────────────────┬──────────────┐
-          │                 │                 │              │
-    ┌──────────┐      ┌──────────┐     ┌──────────┐   ┌──────────┐
-    │   UPI    │      │   Card   │     │ NetBank  │   │  Wallet  │
-    └──────────┘      └──────────┘     └──────────┘   └──────────┘
-          △                 △                 △              △
-          │                 │                 │              │
-          └─────────────────┴─────────────────┴──────────────┘
-                            │ Creates
-                  ┌──────────────────────┐
-                  │ PaymentMethodFactory │ (Factory)
-                  └──────────────────────┘
-                            △
-                            │ Uses
-                       ┌─────────┐
-                       │ Client  │
-                       └─────────┘
+```mermaid
+classDiagram
+    class PaymentMethod {
+        <<interface>>
+        +processPayment(amount: double) boolean
+        +validate() boolean
+        +getPaymentType() String
+        +getTransactionFee(amount: double) double
+    }
+
+    class UpiPaymentMethod {
+        -upiId: String
+        +processPayment(amount: double) boolean
+        +validate() boolean
+        +getPaymentType() String
+        +getTransactionFee(amount: double) double
+    }
+
+    class CardPaymentMethod {
+        -cardNumber: String
+        -cardHolderName: String
+        -expiryDate: String
+        -cvv: String
+        +processPayment(amount: double) boolean
+        +validate() boolean
+        +getPaymentType() String
+        +getTransactionFee(amount: double) double
+    }
+
+    class NetBankingPaymentMethod {
+        -bankName: String
+        -accountNumber: String
+        -ifscCode: String
+        +processPayment(amount: double) boolean
+        +validate() boolean
+        +getPaymentType() String
+        +getTransactionFee(amount: double) double
+    }
+
+    class WalletPaymentMethod {
+        -walletProvider: String
+        -phoneNumber: String
+        -walletBalance: double
+        +processPayment(amount: double) boolean
+        +validate() boolean
+        +getPaymentType() String
+        +getTransactionFee(amount: double) double
+    }
+
+    class PaymentMethodFactory {
+        +createPaymentMethod(type: String, details: Map) PaymentMethod$
+        +createUpiPayment(upiId: String) PaymentMethod$
+        +createCardPayment(num: String, name: String, exp: String, cvv: String) PaymentMethod$
+        +createNetBankingPayment(bank: String, acc: String, ifsc: String) PaymentMethod$
+        +createWalletPayment(prov: String, phone: String, bal: double) PaymentMethod$
+    }
+
+    PaymentMethod <|.. UpiPaymentMethod : Realizes
+    PaymentMethod <|.. CardPaymentMethod : Realizes
+    PaymentMethod <|.. NetBankingPaymentMethod : Realizes
+    PaymentMethod <|.. WalletPaymentMethod : Realizes
+    PaymentMethodFactory ..> PaymentMethod : Creates
+    PaymentMethodFactory ..> UpiPaymentMethod : Instantiates
+    PaymentMethodFactory ..> CardPaymentMethod : Instantiates
+    PaymentMethodFactory ..> NetBankingPaymentMethod : Instantiates
+    PaymentMethodFactory ..> WalletPaymentMethod : Instantiates
 ```
 
 ### Components:
