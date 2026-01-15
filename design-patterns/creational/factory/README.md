@@ -133,16 +133,16 @@ classDiagram
 
 ### Components:
 
-1. **Product Interface** ([PaymentMethod.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/PaymentMethod.java))
+1. **Product Interface** ([PaymentMethod.java](file:///path/to/project/design-patterns/creational/factory/PaymentMethod.java))
    - Defines common interface for all products
 
 2. **Concrete Products**
-   - [UpiPaymentMethod.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/UpiPaymentMethod.java) - UPI payments
-   - [CardPaymentMethod.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/CardPaymentMethod.java) - Card payments
-   - [NetBankingPaymentMethod.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/NetBankingPaymentMethod.java) - Net Banking
-   - [WalletPaymentMethod.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/WalletPaymentMethod.java) - Wallet payments
+   - [UpiPaymentMethod.java](file:///path/to/project/design-patterns/creational/factory/UpiPaymentMethod.java) - UPI payments
+   - [CardPaymentMethod.java](file:///path/to/project/design-patterns/creational/factory/CardPaymentMethod.java) - Card payments
+   - [NetBankingPaymentMethod.java](file:///path/to/project/design-patterns/creational/factory/NetBankingPaymentMethod.java) - Net Banking
+   - [WalletPaymentMethod.java](file:///path/to/project/design-patterns/creational/factory/WalletPaymentMethod.java) - Wallet payments
 
-3. **Factory** ([PaymentMethodFactory.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory/PaymentMethodFactory.java))
+3. **Factory** ([PaymentMethodFactory.java](file:///path/to/project/design-patterns/creational/factory/PaymentMethodFactory.java))
    - Centralizes object creation logic
    - Decides which concrete class to instantiate
 
@@ -189,7 +189,7 @@ Factory creates different report formats (PDF, Excel, CSV)
 
 ```bash
 # Navigate to the oops directory
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 
 # Compile with package structure
 javac -d . design-patterns/creational/factory/*.java
@@ -202,13 +202,13 @@ java creational.factory.FactoryPatternDemo
 
 ```bash
 # Navigate to the factory pattern directory
-cd /Users/uttamsharma/Desktop/java/oops/design-patterns/creational/factory
+cd /path/to/project/design-patterns/creational/factory
 
 # Compile all files
 javac *.java
 
 # Go back to oops directory to run
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 java creational.factory.FactoryPatternDemo
 ```
 

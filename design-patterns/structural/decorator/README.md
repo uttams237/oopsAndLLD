@@ -129,24 +129,24 @@ classDiagram
 
 ### Components:
 
-1. **Component Interface** ([Payment.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/Payment.java))
+1. **Component Interface** ([Payment.java](file:///path/to/project/design-patterns/structural/decorator/Payment.java))
    - Defines common interface for components and decorators
    - Methods: `processPayment()`, `getDescription()`, `getAmount()`
 
-2. **Concrete Component** ([BasePayment.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/BasePayment.java))
+2. **Concrete Component** ([BasePayment.java](file:///path/to/project/design-patterns/structural/decorator/BasePayment.java))
    - The core object being decorated
    - Represents a basic payment without additions
 
-3. **Abstract Decorator** ([PaymentDecorator.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/PaymentDecorator.java))
+3. **Abstract Decorator** ([PaymentDecorator.java](file:///path/to/project/design-patterns/structural/decorator/PaymentDecorator.java))
    - Implements Payment interface
    - Contains a reference to Payment (wrappedPayment)
    - Delegates calls to wrapped object
 
 4. **Concrete Decorators**
-   - [GSTDecorator.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/GSTDecorator.java) - Adds 18% GST
-   - [ProcessingFeeDecorator.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/ProcessingFeeDecorator.java) - Adds 0.5% fee (max ₹500)
-   - [CashbackDecorator.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/CashbackDecorator.java) - Applies cashback discount
-   - [InternationalFeeDecorator.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator/InternationalFeeDecorator.java) - Adds 2% international fee
+   - [GSTDecorator.java](file:///path/to/project/design-patterns/structural/decorator/GSTDecorator.java) - Adds 18% GST
+   - [ProcessingFeeDecorator.java](file:///path/to/project/design-patterns/structural/decorator/ProcessingFeeDecorator.java) - Adds 0.5% fee (max ₹500)
+   - [CashbackDecorator.java](file:///path/to/project/design-patterns/structural/decorator/CashbackDecorator.java) - Applies cashback discount
+   - [InternationalFeeDecorator.java](file:///path/to/project/design-patterns/structural/decorator/InternationalFeeDecorator.java) - Adds 2% international fee
 
 ---
 
@@ -192,7 +192,7 @@ Basic plan + Premium features + Ad-free + Priority support
 
 ```bash
 # Navigate to the oops directory
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 
 # Compile with package structure
 javac -d . design-patterns/structural/decorator/*.java
@@ -205,13 +205,13 @@ java structural.decorator.DecoratorPatternDemo
 
 ```bash
 # Navigate to the decorator pattern directory
-cd /Users/uttamsharma/Desktop/java/oops/design-patterns/structural/decorator
+cd /path/to/project/design-patterns/structural/decorator
 
 # Compile all files
 javac *.java
 
 # Go back to oops directory to run
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 java structural.decorator.DecoratorPatternDemo
 ```
 

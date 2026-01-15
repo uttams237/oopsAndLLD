@@ -110,18 +110,18 @@ classDiagram
 
 ### Components:
 
-1. **Observer Interface** ([NotificationObserver.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/NotificationObserver.java))
+1. **Observer Interface** ([NotificationObserver.java](file:///path/to/project/design-patterns/behavioral/observer/NotificationObserver.java))
    - Defines `update()` method that all observers must implement
 
-2. **Subject Interface** ([TransactionSubject.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/TransactionSubject.java))
+2. **Subject Interface** ([TransactionSubject.java](file:///path/to/project/design-patterns/behavioral/observer/TransactionSubject.java))
    - Defines `attach()`, `detach()`, and `notifyObservers()` methods
 
 3. **Concrete Observers**
-   - [SmsNotificationObserver.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/SmsNotificationObserver.java) - SMS notifications
-   - [EmailNotificationObserver.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/EmailNotificationObserver.java) - Email notifications
-   - [PushNotificationObserver.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/PushNotificationObserver.java) - Push notifications
+   - [SmsNotificationObserver.java](file:///path/to/project/design-patterns/behavioral/observer/SmsNotificationObserver.java) - SMS notifications
+   - [EmailNotificationObserver.java](file:///path/to/project/design-patterns/behavioral/observer/EmailNotificationObserver.java) - Email notifications
+   - [PushNotificationObserver.java](file:///path/to/project/design-patterns/behavioral/observer/PushNotificationObserver.java) - Push notifications
 
-4. **Concrete Subject** ([Transaction.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer/Transaction.java))
+4. **Concrete Subject** ([Transaction.java](file:///path/to/project/design-patterns/behavioral/observer/Transaction.java))
    - Maintains list of observers
    - Notifies all observers when transaction occurs
 
@@ -167,7 +167,7 @@ Notify merchants when payment status changes
 
 ```bash
 # Navigate to the oops directory
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 
 # Compile with package structure
 javac -d . design-patterns/behavioral/observer/*.java
@@ -180,13 +180,13 @@ java behavioral.observer.ObserverPatternDemo
 
 ```bash
 # Navigate to the observer pattern directory
-cd /Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/observer
+cd /path/to/project/design-patterns/behavioral/observer
 
 # Compile all files
 javac *.java
 
 # Go back to oops directory to run
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 java behavioral.observer.ObserverPatternDemo
 ```
 

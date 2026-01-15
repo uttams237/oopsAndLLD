@@ -100,16 +100,16 @@ classDiagram
 
 ### Components:
 
-1. **Strategy Interface** ([PaymentStrategy.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy/PaymentStrategy.java))
+1. **Strategy Interface** ([PaymentStrategy.java](file:///path/to/project/design-patterns/behavioral/strategy/PaymentStrategy.java))
    - Defines the contract for all payment methods
    - `pay(double amount)` method
 
 2. **Concrete Strategies**
-   - [UpiPayment.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy/UpiPayment.java) - UPI payment implementation
-   - [CardPayment.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy/CardPayment.java) - Card payment implementation
-   - [NetBankingPayment.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy/NetBankingPayment.java) - Net banking implementation
+   - [UpiPayment.java](file:///path/to/project/design-patterns/behavioral/strategy/UpiPayment.java) - UPI payment implementation
+   - [CardPayment.java](file:///path/to/project/design-patterns/behavioral/strategy/CardPayment.java) - Card payment implementation
+   - [NetBankingPayment.java](file:///path/to/project/design-patterns/behavioral/strategy/NetBankingPayment.java) - Net banking implementation
 
-3. **Context** ([PaymentContext.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy/PaymentContext.java))
+3. **Context** ([PaymentContext.java](file:///path/to/project/design-patterns/behavioral/strategy/PaymentContext.java))
    - Maintains reference to a Strategy object
    - Delegates payment processing to the strategy
    - Allows changing strategy at runtime
@@ -156,7 +156,7 @@ Different conversion strategies: Real-time rates, Fixed rates, Premium rates
 
 ```bash
 # Navigate to the oops directory
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 
 # Compile with package structure
 javac -d . design-patterns/behavioral/strategy/*.java
@@ -169,13 +169,13 @@ java behavioral.strategy.StrategyPatternDemo
 
 ```bash
 # Navigate to the strategy pattern directory
-cd /Users/uttamsharma/Desktop/java/oops/design-patterns/behavioral/strategy
+cd /path/to/project/design-patterns/behavioral/strategy
 
 # Compile all files
 javac *.java
 
 # Go back to oops directory to run
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 java behavioral.strategy.StrategyPatternDemo
 ```
 

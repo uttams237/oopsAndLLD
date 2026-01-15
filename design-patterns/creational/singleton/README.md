@@ -112,17 +112,17 @@ classDiagram
 
 ### Components:
 
-1. **DatabaseConnection** ([DatabaseConnection.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/singleton/DatabaseConnection.java))
+1. **DatabaseConnection** ([DatabaseConnection.java](file:///path/to/project/design-patterns/creational/singleton/DatabaseConnection.java))
    - Bill Pugh Singleton pattern
    - Thread-safe lazy initialization
    - Database connection management
 
-2. **ConfigurationManager** ([ConfigurationManager.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/singleton/ConfigurationManager.java))
+2. **ConfigurationManager** ([ConfigurationManager.java](file:///path/to/project/design-patterns/creational/singleton/ConfigurationManager.java))
    - Eager initialization
    - Application-wide configuration
    - Tax rates, limits, API keys
 
-3. **Logger** ([Logger.java](file:///Users/uttamsharma/Desktop/java/oops/design-patterns/creational/singleton/Logger.java))
+3. **Logger** ([Logger.java](file:///path/to/project/design-patterns/creational/singleton/Logger.java))
    - Enum-based singleton
    - Centralized transaction logging
    - Audit trail for compliance
@@ -174,7 +174,7 @@ Single instance for API rate limiting
 
 ```bash
 # Navigate to the oops directory
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 
 # Compile with package structure
 javac -d . design-patterns/creational/singleton/*.java
@@ -187,13 +187,13 @@ java creational.singleton.SingletonPatternDemo
 
 ```bash
 # Navigate to the singleton pattern directory
-cd /Users/uttamsharma/Desktop/java/oops/design-patterns/creational/singleton
+cd /path/to/project/design-patterns/creational/singleton
 
 # Compile all files
 javac *.java
 
 # Go back to oops directory to run
-cd /Users/uttamsharma/Desktop/java/oops
+cd /path/to/project
 java creational.singleton.SingletonPatternDemo
 ```
 
