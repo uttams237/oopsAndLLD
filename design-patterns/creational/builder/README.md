@@ -71,57 +71,11 @@ Transaction txn = new Transaction.Builder("TXN001", 1000.0, "INR", "User1", "Use
 
 ## Structure 🏗️
 
-```mermaid
-classDiagram
-    class Transaction {
-        -String transactionId
-        -double amount
-        -String currency
-        -String senderId
-        -String receiverId
-        -LocalDateTime timestamp
-        -String paymentMethod
-        -String status
-        -String note
-        -String location
-        -boolean isRefundable
-        -double conversionRate
-        -String category
-        -Transaction(Builder builder)
-        +getTransactionId() String
-        +getAmount() double
-        +displayDetails()
-    }
-    
-    class Builder {
-        -String transactionId
-        -double amount
-        -String currency
-        -String senderId
-        -String receiverId
-        -LocalDateTime timestamp
-        -String paymentMethod
-        -String status
-        -String note
-        -String location
-        -boolean isRefundable
-        -double conversionRate
-        -String category
-        +Builder(id, amount, currency, senderId, receiverId)
-        +paymentMethod(String) Builder
-        +status(String) Builder
-        +note(String) Builder
-        +location(String) Builder
-        +refundable(boolean) Builder
-        +conversionRate(double) Builder
-        +category(String) Builder
-        +build() Transaction
-        -validate()
-    }
-    
-    Transaction *-- Builder : contains
-    Builder ..> Transaction : creates
-```
+![Builder Pattern UML Diagram](./builder-uml.png)
+
+**Key relationships:**
+- **Transaction *-- Builder** (Composition): Builder is an inner class of Transaction
+- **Builder ..> Transaction** (Dependency): Builder creates Transaction objects
 
 ### Components:
 
