@@ -119,11 +119,8 @@ classDiagram
         -validate()
     }
     
-    Transaction +-- Builder : contains
-    Builder --> Transaction : creates
-    
-    note for Builder "Inner static class\nFluent API with method chaining\nValidation in build()"
-    note for Transaction "Immutable after construction\nPrivate constructor"
+    Transaction *-- Builder : contains
+    Builder ..> Transaction : creates
 ```
 
 ### Components:
