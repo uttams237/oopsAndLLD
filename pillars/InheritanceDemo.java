@@ -1,5 +1,3 @@
-package pillars;
-
 /**
  * =====================================================
  * 2. INHERITANCE (Second Pillar of OOP)

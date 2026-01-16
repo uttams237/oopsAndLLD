@@ -1,5 +1,3 @@
-package pillars;
-
 /**
  * =====================================================
  * 3. POLYMORPHISM (Third Pillar of OOP)

@@ -1,5 +1,3 @@
-package lld;
-
 /**
  * =====================================================
  * 6. LLD BASICS: COMPOSITION VS INHERITANCE
