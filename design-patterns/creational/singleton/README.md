@@ -60,40 +60,37 @@ public class ReportService {
 ```mermaid
 classDiagram
     class DatabaseConnection {
-        -instance : DatabaseConnection
-        -connectionString : String
-        -isConnected : boolean
+        -DatabaseConnection instance$
+        -connectionString: String
+        -isConnected: boolean
         -DatabaseConnection()
-        +getInstance() DatabaseConnection
+        +getInstance() DatabaseConnection$
         +connect()
-        +executeTransaction()
+        +executeTransaction(...)
     }
     
     class ConfigurationManager {
-        -INSTANCE : ConfigurationManager
-        -configurations : Map
+        -ConfigurationManager INSTANCE$
+        -configurations: Map~String,String~
         -ConfigurationManager()
-        +getInstance() ConfigurationManager
-        +getConfig(key) String
-        +setConfig(key, value)
+        +getInstance() ConfigurationManager$
+        +getConfig(key: String) String
+        +setConfig(key: String, value: String)
     }
     
     class Logger {
+        <<enumeration>>
         INSTANCE
-        -logEntries : List
-        +info(message)
-        +warn(message)
-        +error(message)
-        +logTransaction()
+        -logEntries: List~String~
+        +info(message: String)
+        +warn(message: String)
+        +error(message: String)
+        +logTransaction(...)
     }
     
-    class Client {
-        +main()
-    }
-    
-    Client ..> DatabaseConnection : uses
-    Client ..> ConfigurationManager : uses
-    Client ..> Logger : uses
+    note for DatabaseConnection "Bill Pugh Singleton\nThread-safe lazy initialization"
+    note for ConfigurationManager "Eager Initialization\nInstance created at class load"
+    note for Logger "Enum Singleton\nBest practice (Joshua Bloch)"
 ```
 
 ### Implementation Approaches:
