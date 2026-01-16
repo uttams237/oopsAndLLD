@@ -1,3 +1,5 @@
+package lld;
+
 /**
  * =====================================================
  * 5. INTERFACE (Advanced OOP Concept)

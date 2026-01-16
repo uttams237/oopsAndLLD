@@ -41,12 +41,16 @@ public class CardPayment implements PaymentStrategy {
         // Mask card number for security (show only last 4 digits)
         String maskedCard = "**** **** **** " + cardNumber.substring(cardNumber.length() - 4);
         
+        // Validate CVV (basic check)
+        boolean cvvValid = cvv != null && cvv.length() == 3;
+        
         System.out.println("╔════════════════════════════════════════╗");
         System.out.println("║       CARD PAYMENT PROCESSING          ║");
         System.out.println("╠════════════════════════════════════════╣");
         System.out.println("║ Card: " + maskedCard);
         System.out.println("║ Holder: " + cardHolderName);
         System.out.println("║ Expiry: " + expiryDate);
+        System.out.println("║ CVV: " + (cvvValid ? "Verified ✓" : "Invalid ✗"));
         System.out.println("║ Amount: ₹" + amount);
         System.out.println("║ Status: Payment Successful ✓");
         System.out.println("╚════════════════════════════════════════╝");
