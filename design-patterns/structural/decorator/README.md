@@ -65,66 +65,50 @@ double finalAmount = payment.processPayment();
 ```mermaid
 classDiagram
     class Payment {
-        <<interface>>
         +processPayment() double
         +getDescription() String
         +getAmount() double
     }
     
     class BasePayment {
-        -baseAmount: double
-        -paymentType: String
+        -baseAmount : double
+        -paymentType : String
         +processPayment() double
         +getDescription() String
         +getAmount() double
     }
     
     class PaymentDecorator {
-        <<abstract>>
-        #wrappedPayment: Payment
-        +PaymentDecorator(payment: Payment)
+        #wrappedPayment : Payment
         +processPayment() double
         +getDescription() String
         +getAmount() double
     }
     
     class GSTDecorator {
-        -GST_RATE: double$
+        -GST_RATE : double
         +processPayment() double
         +getDescription() String
-        +getAmount() double
     }
     
     class ProcessingFeeDecorator {
-        -FEE_PERCENTAGE: double$
-        -MAX_FEE: double$
+        -FEE_PERCENTAGE : double
         +processPayment() double
         +getDescription() String
-        +getAmount() double
     }
     
     class CashbackDecorator {
-        -cashbackAmount: double
+        -cashbackAmount : double
         +processPayment() double
         +getDescription() String
-        +getAmount() double
     }
     
-    class InternationalFeeDecorator {
-        -INTERNATIONAL_FEE_RATE: double$
-        -targetCurrency: String
-        +processPayment() double
-        +getDescription() String
-        +getAmount() double
-    }
-    
-    Payment <|.. BasePayment : Implements
-    Payment <|.. PaymentDecorator : Implements
-    PaymentDecorator <|-- GSTDecorator : Extends
-    PaymentDecorator <|-- ProcessingFeeDecorator : Extends
-    PaymentDecorator <|-- CashbackDecorator : Extends
-    PaymentDecorator <|-- InternationalFeeDecorator : Extends
-    PaymentDecorator o-- Payment : Wraps
+    Payment <|.. BasePayment
+    Payment <|.. PaymentDecorator
+    PaymentDecorator <|-- GSTDecorator
+    PaymentDecorator <|-- ProcessingFeeDecorator
+    PaymentDecorator <|-- CashbackDecorator
+    PaymentDecorator o-- Payment
 ```
 
 ### Components:

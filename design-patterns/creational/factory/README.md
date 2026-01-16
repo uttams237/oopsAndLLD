@@ -66,69 +66,54 @@ public void processPayment(String type) {
 ```mermaid
 classDiagram
     class PaymentMethod {
-        <<interface>>
-        +processPayment(amount: double) boolean
+        +processPayment(amount) boolean
         +validate() boolean
         +getPaymentType() String
-        +getTransactionFee(amount: double) double
+        +getTransactionFee(amount) double
     }
 
     class UpiPaymentMethod {
-        -upiId: String
-        +processPayment(amount: double) boolean
+        -upiId : String
+        +processPayment(amount) boolean
         +validate() boolean
         +getPaymentType() String
-        +getTransactionFee(amount: double) double
     }
 
     class CardPaymentMethod {
-        -cardNumber: String
-        -cardHolderName: String
-        -expiryDate: String
-        -cvv: String
-        +processPayment(amount: double) boolean
+        -cardNumber : String
+        -cardHolderName : String
+        +processPayment(amount) boolean
         +validate() boolean
         +getPaymentType() String
-        +getTransactionFee(amount: double) double
     }
 
     class NetBankingPaymentMethod {
-        -bankName: String
-        -accountNumber: String
-        -ifscCode: String
-        +processPayment(amount: double) boolean
+        -bankName : String
+        -accountNumber : String
+        +processPayment(amount) boolean
         +validate() boolean
         +getPaymentType() String
-        +getTransactionFee(amount: double) double
     }
 
     class WalletPaymentMethod {
-        -walletProvider: String
-        -phoneNumber: String
-        -walletBalance: double
-        +processPayment(amount: double) boolean
+        -walletProvider : String
+        -phoneNumber : String
+        +processPayment(amount) boolean
         +validate() boolean
         +getPaymentType() String
-        +getTransactionFee(amount: double) double
     }
 
     class PaymentMethodFactory {
-        +createPaymentMethod(type: String, details: Map) PaymentMethod$
-        +createUpiPayment(upiId: String) PaymentMethod$
-        +createCardPayment(num: String, name: String, exp: String, cvv: String) PaymentMethod$
-        +createNetBankingPayment(bank: String, acc: String, ifsc: String) PaymentMethod$
-        +createWalletPayment(prov: String, phone: String, bal: double) PaymentMethod$
+        +createPaymentMethod(type, details) PaymentMethod
+        +createUpiPayment(upiId) PaymentMethod
+        +createCardPayment(num, name, exp, cvv) PaymentMethod
     }
 
-    PaymentMethod <|.. UpiPaymentMethod : Realizes
-    PaymentMethod <|.. CardPaymentMethod : Realizes
-    PaymentMethod <|.. NetBankingPaymentMethod : Realizes
-    PaymentMethod <|.. WalletPaymentMethod : Realizes
-    PaymentMethodFactory ..> PaymentMethod : Creates
-    PaymentMethodFactory ..> UpiPaymentMethod : Instantiates
-    PaymentMethodFactory ..> CardPaymentMethod : Instantiates
-    PaymentMethodFactory ..> NetBankingPaymentMethod : Instantiates
-    PaymentMethodFactory ..> WalletPaymentMethod : Instantiates
+    PaymentMethod <|.. UpiPaymentMethod
+    PaymentMethod <|.. CardPaymentMethod
+    PaymentMethod <|.. NetBankingPaymentMethod
+    PaymentMethod <|.. WalletPaymentMethod
+    PaymentMethodFactory ..> PaymentMethod
 ```
 
 ### Components:

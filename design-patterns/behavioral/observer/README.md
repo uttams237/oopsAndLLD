@@ -59,53 +59,50 @@ transaction.processTransaction("TXN001", 5000, "SUCCESS", "Payment received");
 ```mermaid
 classDiagram
     class NotificationObserver {
-        <<interface>>
-        +update(transactionId: String, amount: double, status: String, message: String)
+        +update(transactionId, amount, status, message)
         +getObserverName() String
     }
 
     class SmsNotificationObserver {
-        -phoneNumber: String
-        +update(...)
+        -phoneNumber : String
+        +update()
         +getObserverName() String
     }
 
     class EmailNotificationObserver {
-        -email: String
-        +update(...)
+        -email : String
+        +update()
         +getObserverName() String
     }
 
     class PushNotificationObserver {
-        -deviceId: String
-        +update(...)
+        -deviceId : String
+        +update()
         +getObserverName() String
     }
 
     class TransactionSubject {
-        <<interface>>
-        +attach(observer: NotificationObserver)
-        +detach(observer: NotificationObserver)
+        +attach(observer)
+        +detach(observer)
         +notifyObservers()
     }
 
     class Transaction {
-        -observers: List~NotificationObserver~
-        -transactionId: String
-        -amount: double
-        -status: String
-        -message: String
-        +attach(observer: NotificationObserver)
-        +detach(observer: NotificationObserver)
+        -observers : List
+        -transactionId : String
+        -amount : double
+        -status : String
+        +attach(observer)
+        +detach(observer)
         +notifyObservers()
-        +processTransaction(...)
+        +processTransaction()
     }
 
-    NotificationObserver <|.. SmsNotificationObserver : Realizes
-    NotificationObserver <|.. EmailNotificationObserver : Realizes
-    NotificationObserver <|.. PushNotificationObserver : Realizes
-    TransactionSubject <|.. Transaction : Realizes
-    Transaction o-- NotificationObserver : Aggregates
+    NotificationObserver <|.. SmsNotificationObserver
+    NotificationObserver <|.. EmailNotificationObserver
+    NotificationObserver <|.. PushNotificationObserver
+    TransactionSubject <|.. Transaction
+    Transaction o-- NotificationObserver
 ```
 
 ### Components:

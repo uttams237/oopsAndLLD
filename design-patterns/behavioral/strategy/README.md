@@ -58,44 +58,40 @@ context.executePayment(2500.00);
 ```mermaid
 classDiagram
     class PaymentStrategy {
-        <<interface>>
-        +pay(amount: double) boolean
+        +pay(amount) boolean
         +getPaymentMethodName() String
     }
 
     class UpiPayment {
-        -upiId: String
-        +pay(amount: double) boolean
+        -upiId : String
+        +pay(amount) boolean
         +getPaymentMethodName() String
     }
 
     class CardPayment {
-        -cardNumber: String
-        -cardHolderName: String
-        -expiryDate: String
-        -cvv: String
-        +pay(amount: double) boolean
+        -cardNumber : String
+        -cardHolderName : String
+        +pay(amount) boolean
         +getPaymentMethodName() String
     }
 
     class NetBankingPayment {
-        -bankName: String
-        -accountNumber: String
-        -ifscCode: String
-        +pay(amount: double) boolean
+        -bankName : String
+        -accountNumber : String
+        +pay(amount) boolean
         +getPaymentMethodName() String
     }
 
     class PaymentContext {
-        -paymentStrategy: PaymentStrategy
-        +setPaymentStrategy(strategy: PaymentStrategy)
-        +executePayment(amount: double) boolean
+        -paymentStrategy : PaymentStrategy
+        +setPaymentStrategy(strategy)
+        +executePayment(amount) boolean
     }
 
-    PaymentStrategy <|.. UpiPayment : Realizes
-    PaymentStrategy <|.. CardPayment : Realizes
-    PaymentStrategy <|.. NetBankingPayment : Realizes
-    PaymentContext --> PaymentStrategy : Uses
+    PaymentStrategy <|.. UpiPayment
+    PaymentStrategy <|.. CardPayment
+    PaymentStrategy <|.. NetBankingPayment
+    PaymentContext --> PaymentStrategy
 ```
 
 ### Components:

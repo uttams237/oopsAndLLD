@@ -60,33 +60,40 @@ public class ReportService {
 ```mermaid
 classDiagram
     class DatabaseConnection {
-        -DatabaseConnection instance$
-        -connectionString: String
-        -isConnected: boolean
+        -instance : DatabaseConnection
+        -connectionString : String
+        -isConnected : boolean
         -DatabaseConnection()
-        +getInstance() DatabaseConnection$
+        +getInstance() DatabaseConnection
         +connect()
-        +executeTransaction(...)
+        +executeTransaction()
     }
     
     class ConfigurationManager {
-        -ConfigurationManager INSTANCE$
-        -configurations: Map~String,String~
+        -INSTANCE : ConfigurationManager
+        -configurations : Map
         -ConfigurationManager()
-        +getInstance() ConfigurationManager$
-        +getConfig(key: String) String
-        +setConfig(key: String, value: String)
+        +getInstance() ConfigurationManager
+        +getConfig(key) String
+        +setConfig(key, value)
     }
     
     class Logger {
-        <<enumeration>>
         INSTANCE
-        -logEntries: List~String~
-        +info(message: String)
-        +warn(message: String)
-        +error(message: String)
-        +logTransaction(...)
+        -logEntries : List
+        +info(message)
+        +warn(message)
+        +error(message)
+        +logTransaction()
     }
+    
+    class Client {
+        +main()
+    }
+    
+    Client ..> DatabaseConnection : uses
+    Client ..> ConfigurationManager : uses
+    Client ..> Logger : uses
 ```
 
 ### Implementation Approaches:

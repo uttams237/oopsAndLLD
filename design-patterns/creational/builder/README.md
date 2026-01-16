@@ -74,53 +74,46 @@ Transaction txn = new Transaction.Builder("TXN001", 1000.0, "INR", "User1", "Use
 ```mermaid
 classDiagram
     class Transaction {
-        -String transactionId
-        -double amount
-        -String currency
-        -String senderId
-        -String receiverId
-        -LocalDateTime timestamp
-        -String paymentMethod
-        -String status
-        -String note
-        -String location
-        -boolean isRefundable
-        -double conversionRate
-        -String category
-        -Transaction(Builder builder)
+        -transactionId : String
+        -amount : double
+        -currency : String
+        -senderId : String
+        -receiverId : String
+        -timestamp : LocalDateTime
+        -paymentMethod : String
+        -status : String
+        -note : String
+        -location : String
+        -isRefundable : boolean
+        -conversionRate : double
+        -category : String
         +getTransactionId() String
         +getAmount() double
         +displayDetails()
     }
     
     class Builder {
-        -String transactionId
-        -double amount
-        -String currency
-        -String senderId
-        -String receiverId
-        -LocalDateTime timestamp
-        -String paymentMethod
-        -String status
-        -String note
-        -String location
-        -boolean isRefundable
-        -double conversionRate
-        -String category
+        -transactionId : String
+        -amount : double
+        -currency : String
+        -senderId : String
+        -receiverId : String
         +Builder(id, amount, currency, senderId, receiverId)
         +paymentMethod(String) Builder
         +status(String) Builder
         +note(String) Builder
         +location(String) Builder
         +refundable(boolean) Builder
-        +conversionRate(double) Builder
-        +category(String) Builder
         +build() Transaction
-        -validate()
+    }
+    
+    class Client {
+        +main()
     }
     
     Transaction *-- Builder : contains
     Builder ..> Transaction : creates
+    Client ..> Builder : uses
 ```
 
 ### Components:
