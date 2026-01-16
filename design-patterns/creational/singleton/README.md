@@ -87,10 +87,6 @@ classDiagram
         +error(message: String)
         +logTransaction(...)
     }
-    
-    note for DatabaseConnection "Bill Pugh Singleton\nThread-safe lazy initialization"
-    note for ConfigurationManager "Eager Initialization\nInstance created at class load"
-    note for Logger "Enum Singleton\nBest practice (Joshua Bloch)"
 ```
 
 ### Implementation Approaches:
