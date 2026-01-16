@@ -1,4 +1,4 @@
-import java.util.UUID;
+package structural.adapter;
 
 /**
  * Adapter - Bridges the gap between LegacyBankAPI and PaymentProcessor

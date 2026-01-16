@@ -1,3 +1,5 @@
+package structural.adapter;
+
 /**
  * Target Interface - Modern Payment Processor Interface
  * This is the interface that our application expects to work with.

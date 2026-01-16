@@ -1,3 +1,5 @@
+package structural.adapter;
+
 /**
  * Adapter Pattern Demo
  * 

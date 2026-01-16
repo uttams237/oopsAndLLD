@@ -1,3 +1,5 @@
+package structural.adapter;
+
 /**
  * Adaptee - Legacy Bank API
  * This is an existing class with a different interface that we need to adapt.

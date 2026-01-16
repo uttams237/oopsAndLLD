@@ -1,3 +1,5 @@
+package structural.adapter;
+
 import java.util.UUID;
 
 /**
